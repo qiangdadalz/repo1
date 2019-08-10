@@ -14,6 +14,8 @@ public interface IPermissionDao {
     @Select("select * from permission")
     List<Permission> findAll() throws Exception;
 
-    @Insert("insert into permission(permissionName,url) values(#{permissionName},#{url})")
+    @Insert("insert into permission(id,permissionName,url) values(#{id},#{permissionName},#{url})")
     void save(Permission permission) throws Exception;
+
+
 }

@@ -31,7 +31,7 @@ public class ProductController {
     //产品添加
     @RequestMapping("/save.do")
     public String  save(Product product) throws Exception {
-        System.out.println(product);
+
         productService.save(product);
 
         return "redirect:findAll.do";
