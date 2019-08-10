@@ -20,6 +20,7 @@ public interface IRoleDao {
     @Select("select * from role")
     List<Role> findAll() throws Exception;
 
-    @Insert("insert into role(roleName,roleDesc) values(#{roleName},#{roleDesc})")
+    //新建角色
+    @Insert("insert into role(id,roleName,roleDesc) values(#{id},#{roleName},#{roleDesc})")
     void save(Role role);
 }

@@ -29,9 +29,7 @@ public class Product {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id.concat(UuidUtils.makeUuid());
-    }
+    public void setId(String id) { this.id = id; }
 
     public String getProductNum() {
         return productNum;

@@ -17,6 +17,8 @@ public class ProductServiceImpl implements IProductService {
     @Autowired
     private IProductDao productDao;
 
+    UuidUtils uuidUtils = new UuidUtils();
+
     @Override
     public List<Product> findAll() throws Exception {
         return productDao.findAll();
@@ -24,7 +26,9 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public void save(Product product) throws Exception {
-        System.out.println("哈哈哈哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或");
+
+        product.setId(uuidUtils.makeUuid());
+
         productDao.save(product);
     }
 }
