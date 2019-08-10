@@ -1,5 +1,6 @@
 package com.itheima.ssm.dao;
 
+import com.itheima.ssm.domain.Permission;
 import com.itheima.ssm.domain.Role;
 import org.apache.ibatis.annotations.*;
 
@@ -23,4 +24,13 @@ public interface IRoleDao {
     //新建角色
     @Insert("insert into role(id,roleName,roleDesc) values(#{id},#{roleName},#{roleDesc})")
     void save(Role role);
+
+    @Select("select * from role where id=#{roleId}")
+    Role findById(String roleId);
+
+    @Select("select * from permission where id not in (select permissionId from role_permission where roleId=#{roleId})")
+    List<Permission> findOtherPermissions(String roleId);
+
+    @Insert("insert into role_permission(roleId,permissionId) values(#{roleId},#{permissionId})")
+    void addPermissionToRole(@Param("roleId") String roleId, @Param("permissionId") String permissionId);
 }
