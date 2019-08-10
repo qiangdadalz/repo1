@@ -18,6 +18,18 @@ public class RoleController {
     @Autowired
     private IRoleService roleService;
 
+    //角色详情查询
+    @RequestMapping("/findById.do")
+    public ModelAndView findById(@RequestParam(name = "id", required = true) String roleId) throws Exception {
+        ModelAndView mv = new ModelAndView();
+        Role role = roleService.findById(roleId);
+
+        mv.addObject("role", role);
+        mv.setViewName("role-show");
+        return mv;
+    }
+
+
     //给角色添加权限
     @RequestMapping("/addPermissionToRole.do")
     public String addPermissionToRole(@RequestParam(name = "roleId", required = true) String roleId, @RequestParam(name = "ids", required = true) String[] permissionIds) throws Exception {
