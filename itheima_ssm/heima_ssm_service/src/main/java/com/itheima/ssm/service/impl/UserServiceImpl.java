@@ -36,6 +36,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public List<Role> findOtherRoles(String userId) {
+        return userDao.findOtherRoles(userId);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserInfo userInfo = null;
         try {
