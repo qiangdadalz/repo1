@@ -16,4 +16,6 @@ public interface IRoleService {
     List<Permission> findOtherPermissions(String roleId) throws Exception;
 
     void addPermissionToRole(String roleId, String[] permissionIds) throws Exception;
+
+    void deleteRoleById(String roleId) throws Exception;
 }

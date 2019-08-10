@@ -18,6 +18,13 @@ public class RoleController {
     @Autowired
     private IRoleService roleService;
 
+    //角色删除
+    @RequestMapping("/deleteRole.do")
+    public String deleteRole(@RequestParam(name="id",required = true) String roleId) throws Exception {
+        roleService.deleteRoleById(roleId);
+        return "redirect:findAll.do";
+    }
+
     //角色详情查询
     @RequestMapping("/findById.do")
     public ModelAndView findById(@RequestParam(name = "id", required = true) String roleId) throws Exception {

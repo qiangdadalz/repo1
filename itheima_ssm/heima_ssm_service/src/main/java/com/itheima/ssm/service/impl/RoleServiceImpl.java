@@ -21,6 +21,17 @@ public class RoleServiceImpl implements IRoleService {
     UuidUtils uuidUtils = new UuidUtils();
 
     @Override
+    public void deleteRoleById(String roleId) {
+        //从user_role表中删除
+        roleDao.deleteFromUser_RoleByRoleId(roleId);
+        //从role_permission表中删除
+        roleDao.deleteFromRole_PermissionByRoleId(roleId);
+        //从role表中删除
+        roleDao.deleteRoleById(roleId);
+    }
+
+
+    @Override
     public void addPermissionToRole(String roleId, String[] permissionIds) {
         for(String permissionId:permissionIds){
             roleDao.addPermissionToRole(roleId,permissionId);
