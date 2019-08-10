@@ -18,6 +18,13 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    //给用户添加角色
+    @RequestMapping("/addRoleToUser.do")
+    public String addRoleToUser(@RequestParam(name = "userId", required = true) String userId, @RequestParam(name = "ids", required = true) String[] roleIds) {
+        userService.addRoleToUser(userId, roleIds);
+        return "redirect:findAll.do";
+    }
+
     //查询用户以及用户可以添加的角色
     @RequestMapping("/findUserByIdAndAllRole.do")
     public ModelAndView findUserByIdAndAllRole(@RequestParam(name = "id", required = true) String userid) throws Exception {

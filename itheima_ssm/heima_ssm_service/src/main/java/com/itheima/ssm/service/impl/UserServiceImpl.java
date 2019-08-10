@@ -30,6 +30,14 @@ public class UserServiceImpl implements IUserService {
     UuidUtils uuidUtils = new UuidUtils();
 
     @Override
+    public void addRoleToUser(String userId, String[] roleIds) {
+
+        for(String roleId:roleIds){
+            userDao.addRoleToUser(userId,roleId);
+        }
+    }
+
+    @Override
     public UserInfo findById(String id) throws Exception{
 
         return  userDao.findById(id);
