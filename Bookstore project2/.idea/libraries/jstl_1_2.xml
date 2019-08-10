@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jstl-1.2">
+    <CLASSES>
+      <root url="jar://E:/javaEE压缩包/day12_jsp加强/03.资料和工具/jar/jstl-1.2.jar!/" />
+      <root url="jar://E:/javaEE压缩包/day12_jsp加强/03.资料和工具/jar/standard.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
